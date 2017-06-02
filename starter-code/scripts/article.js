@@ -22,14 +22,17 @@ Article.prototype.toHtml = function() {
   return template(this);
 };
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+function populateArticles() { //eslint-disable-line
 
-rawData.forEach(function(articleObject) {
-  articles.push(new Article(articleObject));
-})
+  rawData.sort(function(a,b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  });
 
-articles.forEach(function(article){
-  $('#articles').append(article.toHtml())
-});
+  rawData.forEach(function(articleObject) {
+    articles.push(new Article(articleObject));
+  })
+
+  articles.forEach(function(article){
+    $('#articles').append(article.toHtml())
+  });
+}
