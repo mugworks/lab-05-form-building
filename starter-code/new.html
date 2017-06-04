@@ -12,8 +12,8 @@
     <!-- NOTE (stretch goal): To fully incorporate the highlighting library "hljs" we need to fill the empty link tag below to refer to a CSS file that will handle our text highlighting -->
     <link>
     <script id="article-template" type="text/x-handlebars-template">
-    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">-->
-    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <!-- TODO: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
       <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
         <header>
@@ -80,7 +80,7 @@
       <section id="article-export">
         <!-- TODO: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
         <!--<pre><code="html"><input type="text" id="article-json"></code></pre>-->
-        <input type="text" id="article-json">
+        <pre><code><input type="text" id="article-json"></code></pre>
       </section>
 
 
@@ -95,7 +95,9 @@
     <script src="/scripts/blogArticles.js"></script>
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
-    <!--<script>hljs.initHighlightingOnLoad();</script>-->
+    <script>$(document).ready(function() {
+      // hljs.initHighlightingOnLoad();
+    });</script>
     <script>
       articleView.initNewArticlePage();
       // TODO: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
